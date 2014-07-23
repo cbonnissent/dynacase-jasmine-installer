@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<module name="@PACKAGE@" version="@VERSION@" release="@RELEASE@" basecomponent="no">
+
+<description>
+    Jasmine is a unit test framework for JavaScript
+</description>
+
+<parameters>
+    <param name="jasmine" label="jasmine download URL" type="text"
+               volatile="yes" onupgrade="W"
+               default="http://ftp.dynacase.org/third-party/jasmine-@VERSION@.zip"/>
+    </parameters>
+
+<post-install>
+    <download href="@jasmine" action="programs/jasmine_install">
+        <label lang="en">Download and install jasmine @VERSION@</label>
+    </download>
+</post-install>
+
+<post-upgrade>
+    <download href="@jasmine" action="programs/jasmine_install">
+        <label lang="en">Download and install jasmine @VERSION@</label>
+    </download>
+</post-upgrade>
+
+<pre-install>
+    <check type="phpclass"  class="ZipArchive">
+        <help>Zip class is not present (including in php 5.2)</help>
+    </check>
+</pre-install>
+
+<pre-upgrade>
+    <check type="phpclass"  class="ZipArchive">
+        <help>Zip class is not present (including in php 5.2)</help>
+    </check>
+</pre-upgrade>
+
+</module>

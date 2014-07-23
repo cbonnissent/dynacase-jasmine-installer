@@ -1,0 +1,10 @@
+AC_INIT(./Makefile.in)
+AC_SUBST(VERSION)
+VERSION=`cat VERSION`
+AC_SUBST(RELEASE)
+RELEASE=`cat RELEASE`
+AC_SUBST(PACKAGE)
+PACKAGE=dynacase-jasmine-installer
+
+
+AC_OUTPUT(Makefile info.xml)

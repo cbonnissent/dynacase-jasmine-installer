@@ -1,0 +1,13 @@
+VERSION=@VERSION@
+RELEASE=@RELEASE@
+PACKAGE=@PACKAGE@
+
+webinst:
+	mkdir -p tmp
+	tar -C src -zcf tmp/content.tar.gz .
+	cp info.xml tmp/info.xml
+	tar -C tmp -zcf dynacase-jasmine-installer-${VERSION}-${RELEASE}.webinst info.xml content.tar.gz
+
+clean:
+	rm -Rf tmp
+	rm -f dynacase-jasmine-*.webinst
